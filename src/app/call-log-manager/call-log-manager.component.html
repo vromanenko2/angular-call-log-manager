@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <span>Call Log Manager</span>
+</mat-toolbar>
+<div class="main">
+  <mat-tab-group>
+    <mat-tab label="Search Call">
+      <div class="tab-content">
+        <app-call-log-list #callLogList></app-call-log-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="New Call">
+      <div class="tab-content">
+        <div style="width: 80%">
+          <app-call-log-edit (callLogItemIsSaved)="callLogList.search();"></app-call-log-edit>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Statistics">
+      <div class="tab-content">
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

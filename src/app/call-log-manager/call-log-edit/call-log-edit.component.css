@@ -1,0 +1,21 @@
+.width-100 {
+  width: 100%;
+}
+.width-80 {
+  width: 80%;
+}
+.width-50 {
+  width: 50%;
+}
+.width-30 {
+  width: 30%;
+}
+.buttons-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.button-container {
+  display: flex;
+  width: 49%;
+}

@@ -1,0 +1,79 @@
+<ng-template [ngIf]="notificationMessages.length > 0">
+  <div *ngFor="let message of notificationMessages" 
+    class="alert alert-info alert-dismissible fade show" role="alert">
+    <button type="button" class="close" aria-label="Close" 
+      (click)="closeNotificationAlert($event.target.parentElement, message);">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+</ng-template>
+<ng-template [ngIf]="errorMessages.length > 0">
+  <div *ngFor="let message of errorMessages" 
+    class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" aria-label="Close" 
+      (click)="closeErrorAlert($event.target.parentElement, message);">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+</ng-template>
+<ng-template [ngIf]="validationErrorMessages.length > 0">
+  <div *ngFor="let message of validationErrorMessages" 
+    class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" aria-label="Close" 
+      (click)="closeValidationAlert($event.target.parentElement, message);">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+</ng-template>
+<div class="width-100">
+  <div style="float: left;" class="width-50">
+    <mat-form-field class="width-80" appearance="fill">
+      <mat-label>Caller</mat-label>
+      <input matInput required [(ngModel)]="callLogItem.user" #user="ngModel" />
+    </mat-form-field>
+  </div>
+  <div style="float: left; text-align: right;" class="width-50">
+    <mat-form-field class="width-80" appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select [value]="callLogItem.status.id" (selectionChange)="onChangeStatus($event.value);">
+        <mat-option *ngFor="let status of statuses" [value]="status.id">
+          {{status.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+<div class="width-50">
+  <mat-form-field class="width-80" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput required [(ngModel)]="callLogItem.title" #title="ngModel" />
+  </mat-form-field>
+</div>
+<div class="width-100">
+  <mat-form-field class="width-100" appearance="fill">
+    <mat-label>Problem</mat-label>
+    <textarea required [(ngModel)]="callLogItem.problem" rows="10" matInput #problem="ngModel"></textarea>
+  </mat-form-field>
+</div>
+<div class="width-100">
+  <mat-form-field class="width-100" appearance="fill">
+    <mat-label>Solution</mat-label>
+    <textarea [(ngModel)]="callLogItem.solution" rows="10" matInput></textarea>
+  </mat-form-field>
+</div>
+<div class="width-100 buttons-flex-container">
+  <div class="button-container" style="justify-content: flex-end;">
+    <button (click)="save();" mat-fab color="primary" matTooltip="Save">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+  <div class="button-container" style="justify-content: flex-start;">
+    <button (click)="cancel();" mat-fab color="primary" matTooltip="Cancel">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+table,
+input,
+mat-form-field {
+  width: 100%;
+}
+.mat-column-id {
+  width: 5%;
+}
+.mat-column-date {
+  width: 10%;
+}
+.mat-column-user {
+  width: 30%;
+}
+.mat-column-title {
+  width: 40%;
+}
+.mat-column-status {
+  width: 10%;
+}
+.mat-column-action {
+  width: 5%;
+}
+.mat-row:nth-child(even) {
+  background-color: #f5f5f5;
+}
