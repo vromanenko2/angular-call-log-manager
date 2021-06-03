@@ -170,11 +170,6 @@ export class CallLogEditComponent implements OnInit {
   closeAlert(element: any): boolean {
     if(element && element.parentElement){
       element.parentElement.classList.remove('show');
-      setTimeout(() => {
-        if(element.parentElement.classList.contains('alert')){
-          element.parentElement.remove();
-        } 
-      }, 300);
 
       return true;
     }
